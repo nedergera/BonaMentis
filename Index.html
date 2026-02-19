@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro de Atención Psicológica Online | Salud Mental Profesional</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #004d61;
+            --color-secondary: #006b7d;
+            --color-accent: #008ba3;
+            --color-light: #f4f7f9;
+            --color-white: #ffffff;
+            --color-text: #1a2332;
+            --color-text-light: #4a5568;
+            --color-border: #d1dce6;
+            --color-success: #2f855a;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 6rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: var(--color-text);
+            background: var(--color-white);
+            font-weight: 400;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-weight: 600;
+            line-height: 1.3;
+            color: var(--color-text);
+        }
+
+        /* Header */
+        header {
+            background: var(--color-white);
+            border-bottom: 1px solid var(--color-border);
+            padding: 1.2rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+        }
+
+        nav {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 var(--spacing-md);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--color-primary);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--color-text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.01em;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-primary);
+        }
+
+        .btn-header {
+            background: var(--color-primary);
+            color: white;
+            padding: 0.65rem 1.8rem;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.02em;
+            transition: all 0.2s;
+            text-transform: uppercase;
+        }
+
+        .btn-header:hover {
+            background: var(--color-secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(165deg, #f4f7f9 0%, #e8eff4 100%);
+            padding: 10rem var(--spacing-md) var(--spacing-xl);
+            margin-top: 73px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 0%, rgba(0, 77, 97, 0.03) 100%);
+            pointer-events: none;
+        }
+
+        .hero-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-primary);
+            line-height: 1.15;
+            font-weight: 600;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.3rem;
+            color: var(--color-text-light);
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--color-border);
+        }
+
+        .stat-item {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            font-family: 'Work Sans', sans-serif;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+        }
+
+        .hero-image {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image-placeholder {
+            width: 100%;
+            height: 450px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            box-shadow: 0 20px 60px rgba(0, 77, 97, 0.15);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--color-primary);
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 0.02em;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: var(--color-secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 77, 97, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+            padding: 0.95rem 2.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 0.02em;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Trust Banner */
+        .trust-banner {
+            background: white;
+            padding: 2rem var(--spacing-md);
+            border-top: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .trust-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .trust-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--color-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .trust-text {
+            text-align: left;
+        }
+
+        .trust-title {
+            font-weight: 600;
+            color: var(--color-text);
+            font-size: 0.95rem;
+        }
+
+        .trust-subtitle {
+            font-size: 0.85rem;
+            color: var(--color-text-light);
+        }
+
+        /* Sections */
+        .section {
+            padding: var(--spacing-xl) var(--spacing-md);
+        }
+
+        .section-dark {
+            background: var(--color-light);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-tag {
+            display: inline-block;
+            color: var(--color-primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: var(--color-text);
+        }
+
+        .section-description {
+            font-size: 1.15rem;
+            color: var(--color-text-light);
+            line-height: 1.7;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: var(--spacing-md);
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            border-color: var(--color-primary);
+            box-shadow: 0 8px 24px rgba(0, 77, 97, 0.08);
+            transform: translateY(-4px);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--color-light);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-primary);
+        }
+
+        .service-card p {
+            color: var(--color-text-light);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .service-card ul {
+            list-style: none;
+            margin-top: 1.5rem;
+            padding: 0;
+        }
+
+        .service-card ul li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--color-text-light);
+            font-size: 0.9rem;
+        }
+
+        .service-card ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--color-success);
+            font-weight: 700;
+        }
+
+        /* Process Section */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: var(--spacing-md);
+            position: relative;
+        }
+
+        .process-grid::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: linear-gradient(to right, var(--color-border) 0%, var(--color-border) 50%, transparent 50%, transparent 100%);
+            background-size: 20px 2px;
+            z-index: 0;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-number {
+            width: 80px;
+            height: 80px;
+            background: var(--color-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 77, 97, 0.15);
+        }
+
+        .process-step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            color: var(--color-text);
+        }
+
+        .process-step p {
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Professionals Section */
+        .professionals-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: var(--spacing-md);
+        }
+
+        .professional-card {
+            background: white;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .professional-card:hover {
+            box-shadow: 0 8px 24px rgba(0, 77, 97, 0.08);
+            transform: translateY(-4px);
+        }
+
+        .professional-image {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, #e0e7ed 0%, #c8d6e0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--color-primary);
+        }
+
+        .professional-info {
+            padding: 1.5rem;
+        }
+
+        .professional-info h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.4rem;
+            color: var(--color-text);
+        }
+
+        .professional-specialty {
+            color: var(--color-primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .professional-credentials {
+            font-size: 0.85rem;
+            color: var(--color-text-light);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .professional-experience {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--color-border);
+            font-size: 0.85rem;
+            color: var(--color-text-light);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            color: white;
+            padding: var(--spacing-xl) var(--spacing-md);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        .cta-section .btn-primary {
+            background: white;
+            color: var(--color-primary);
+        }
+
+        .cta-section .btn-primary:hover {
+            background: var(--color-light);
+            color: var(--color-primary);
+        }
+
+        /* Footer */
+        footer {
+            background: #0a1929;
+            color: #a8b5c3;
+            padding: var(--spacing-lg) var(--spacing-md) var(--spacing-md);
+        }
+
+        .footer-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-about p {
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-section a {
+            color: #a8b5c3;
+            text-decoration: none;
+            transition: color 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-certifications {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .certification-badge {
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .footer-bottom {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding-top: var(--spacing-md);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-legal a {
+            color: #a8b5c3;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-md);
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .professionals-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-grid::before {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .services-grid,
+            .professionals-grid,
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#" class="logo">
+                <div class="logo-icon">Ψ</div>
+                <span>Centro de Atención Psicológica</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#servicios">Servicios Clínicos</a></li>
+                <li><a href="#proceso">Proceso</a></li>
+                <li><a href="#profesionales">Equipo Profesional</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <a href="#" class="btn-header">Portal Pacientes</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Atención Psicológica Profesional en Línea</h1>
+                <p class="subtitle">Acceso inmediato a profesionales certificados en salud mental. Consultas virtuales con el mismo rigor clínico que la atención presencial.</p>
+                <div class="btn-group">
+                    <a href="#" class="btn-primary">Agendar Consulta</a>
+                    <a href="#" class="btn-secondary">Conocer Equipo</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Años de Experiencia</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label">Satisfacción</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Disponibilidad</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-image-placeholder">
+                    <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="100" cy="100" r="80" stroke="white" stroke-width="2" opacity="0.3"/>
+                        <path d="M100 40 C120 40, 140 60, 140 80 C140 100, 120 120, 100 120 C80 120, 60 100, 60 80 C60 60, 80 40, 100 40" fill="white" opacity="0.8"/>
+                        <ellipse cx="100" cy="140" rx="50" ry="20" fill="white" opacity="0.6"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Banner -->
+    <section class="trust-banner">
+        <div class="trust-container">
+            <div class="trust-item">
+                <div class="trust-icon">✓</div>
+                <div class="trust-text">
+                    <div class="trust-title">Profesionales Certificados</div>
+                    <div class="trust-subtitle">Lic. vigentes y cédulas profesionales</div>
+                </div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">🔒</div>
+                <div class="trust-text">
+                    <div class="trust-title">Confidencialidad Garantizada</div>
+                    <div class="trust-subtitle">Cumplimiento normativo NOM-004</div>
+                </div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">📋</div>
+                <div class="trust-text">
+                    <div class="trust-title">Historiales Clínicos</div>
+                    <div class="trust-subtitle">Expedientes digitales seguros</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="servicios">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Servicios Clínicos</span>
+                <h2 class="section-title">Especialidades en Salud Mental</h2>
+                <p class="section-description">Ofrecemos tratamiento especializado basado en evidencia científica para diversas condiciones psicológicas y psiquiátricas.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🧠</div>
+                    <h3>Psicoterapia Individual</h3>
+                    <p>Tratamiento personalizado para trastornos del estado de ánimo, ansiedad, trauma y desarrollo personal.</p>
+                    <ul>
+                        <li>Evaluación psicológica inicial</li>
+                        <li>Plan de tratamiento individualizado</li>
+                        <li>Seguimiento continuo y ajustes</li>
+                        <li>Sesiones de 50 minutos</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">👥</div>
+                    <h3>Terapia de Pareja y Familia</h3>
+                    <p>Intervención sistémica para mejorar la comunicación, resolver conflictos y fortalecer vínculos.</p>
+                    <ul>
+                        <li>Análisis de dinámica relacional</li>
+                        <li>Técnicas de comunicación efectiva</li>
+                        <li>Resolución de conflictos</li>
+                        <li>Sesiones conjuntas e individuales</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💊</div>
+                    <h3>Evaluación Psiquiátrica</h3>
+                    <p>Diagnóstico diferencial y tratamiento farmacológico cuando sea clínicamente indicado.</p>
+                    <ul>
+                        <li>Valoración psiquiátrica completa</li>
+                        <li>Prescripción médica responsable</li>
+                        <li>Monitoreo de efectos terapéuticos</li>
+                        <li>Coordinación con psicoterapia</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>Evaluación Neuropsicológica</h3>
+                    <p>Valoración cognitiva integral mediante pruebas estandarizadas y análisis funcional.</p>
+                    <ul>
+                        <li>Baterías neuropsicológicas</li>
+                        <li>Informe clínico detallado</li>
+                        <li>Recomendaciones terapéuticas</li>
+                        <li>Seguimiento evolutivo</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎯</div>
+                    <h3>Terapia Cognitivo-Conductual</h3>
+                    <p>Abordaje estructurado con técnicas validadas para trastornos específicos.</p>
+                    <ul>
+                        <li>Reestructuración cognitiva</li>
+                        <li>Exposición gradual</li>
+                        <li>Técnicas de afrontamiento</li>
+                        <li>Prevención de recaídas</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🧘</div>
+                    <h3>Intervención en Crisis</h3>
+                    <p>Atención urgente para situaciones de crisis emocional y riesgo psicológico.</p>
+                    <ul>
+                        <li>Disponibilidad prioritaria</li>
+                        <li>Estabilización emocional</li>
+                        <li>Plan de seguridad</li>
+                        <li>Derivación cuando sea necesario</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section section-dark" id="proceso">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Proceso de Atención</span>
+                <h2 class="section-title">Metodología Clínica Estructurada</h2>
+                <p class="section-description">Nuestro protocolo de atención garantiza un proceso profesional desde el primer contacto hasta el alta terapéutica.</p>
+            </div>
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="process-number">01</div>
+                    <h3>Registro y Asignación</h3>
+                    <p>Creación de expediente clínico digital y asignación de profesional según especialidad requerida.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">02</div>
+                    <h3>Primera Consulta</h3>
+                    <p>Evaluación inicial, historia clínica completa y establecimiento de objetivos terapéuticos.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">03</div>
+                    <h3>Plan de Tratamiento</h3>
+                    <p>Diseño de intervención personalizada con frecuencia, duración y técnicas específicas.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">04</div>
+                    <h3>Seguimiento Continuo</h3>
+                    <p>Sesiones regulares, evaluación de progreso y ajustes terapéuticos según evolución.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professionals Section -->
+    <section class="section" id="profesionales">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Equipo Clínico</span>
+                <h2 class="section-title">Profesionales de la Salud Mental</h2>
+                <p class="section-description">Nuestro equipo está conformado por especialistas certificados con formación académica rigurosa y experiencia clínica comprobable.</p>
+            </div>
+            <div class="professionals-grid">
+                <div class="professional-card">
+                    <div class="professional-image">👩‍⚕️</div>
+                    <div class="professional-info">
+                        <h4>Dra. María Elena Rodríguez</h4>
+                        <span class="professional-specialty">Psicóloga Clínica</span>
+                        <p class="professional-credentials">Lic. en Psicología, UNAM<br>Maestría en Psicoterapia Cognitivo-Conductual<br>Cédula Prof: 7894523</p>
+                        <div class="professional-experience">
+                            <span>⏱</span>
+                            <span>15 años de experiencia clínica</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="professional-card">
+                    <div class="professional-image">👨‍⚕️</div>
+                    <div class="professional-info">
+                        <h4>Dr. Carlos Mendoza Torres</h4>
+                        <span class="professional-specialty">Médico Psiquiatra</span>
+                        <p class="professional-credentials">Médico Cirujano, IPN<br>Especialidad en Psiquiatría, UNAM<br>Cédula Prof: 6543210</p>
+                        <div class="professional-experience">
+                            <span>⏱</span>
+                            <span>18 años de experiencia clínica</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="professional-card">
+                    <div class="professional-image">👩‍⚕️</div>
+                    <div class="professional-info">
+                        <h4>Mtra. Ana Patricia Vargas</h4>
+                        <span class="professional-specialty">Terapeuta Familiar</span>
+                        <p class="professional-credentials">Lic. en Psicología, UAM<br>Maestría en Terapia Familiar Sistémica<br>Cédula Prof: 8765432</p>
+                        <div class="professional-experience">
+                            <span>⏱</span>
+                            <span>12 años de experiencia clínica</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="professional-card">
+                    <div class="professional-image">👨‍⚕️</div>
+                    <div class="professional-info">
+                        <h4>Dr. Roberto Sánchez Luna</h4>
+                        <span class="professional-specialty">Neuropsicólogo</span>
+                        <p class="professional-credentials">Lic. en Psicología, UV<br>Doctorado en Neuropsicología Clínica<br>Cédula Prof: 5432198</p>
+                        <div class="professional-experience">
+                            <span>⏱</span>
+                            <span>10 años de experiencia clínica</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contacto">
+        <div class="cta-content">
+            <h2>Solicite su Consulta Inicial</h2>
+            <p>El primer paso hacia el bienestar emocional comienza con una decisión profesional. Nuestro equipo está disponible para atenderle.</p>
+            <a href="#" class="btn-primary">Agendar Primera Consulta</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section footer-about">
+                <h3>Centro de Atención Psicológica</h3>
+                <p>Institución especializada en servicios de salud mental con apego estricto a las normas oficiales mexicanas y códigos de ética profesional.</p>
+                <div class="footer-certifications">
+                    <span class="certification-badge">NOM-004-SSA3</span>
+                    <span class="certification-badge">ISO 9001</span>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Servicios</h3>
+                <ul>
+                    <li><a href="#">Psicoterapia Individual</a></li>
+                    <li><a href="#">Terapia de Pareja</a></li>
+                    <li><a href="#">Evaluación Psiquiátrica</a></li>
+                    <li><a href="#">Neuropsicología</a></li>
+                    <li><a href="#">Intervención en Crisis</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Recursos</h3>
+                <ul>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                    <li><a href="#">Biblioteca Clínica</a></li>
+                    <li><a href="#">Protocolos de Atención</a></li>
+                    <li><a href="#">Contacto Urgencias</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Información</h3>
+                <ul>
+                    <li><a href="#">Sobre Nosotros</a></li>
+                    <li><a href="#">Equipo Profesional</a></li>
+                    <li><a href="#">Certificaciones</a></li>
+                    <li><a href="#">Convenios Institucionales</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Centro de Atención Psicológica. Registro Sanitario: COFEPRIS-123456</p>
+            <div class="footer-legal">
+                <a href="#">Aviso de Privacidad</a>
+                <a href="#">Términos de Servicio</a>
+                <a href="#">Código de Ética</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
